@@ -5,7 +5,7 @@
 int main () {
 
 int i;
-int n=20;
+int n=1;
 char currentChar;
 int shiftKey = 1;
 char actualCharacter;
@@ -17,6 +17,8 @@ n = 0;
 while (currentChar != 13) {
 
 currentChar = getch();
+
+
 if (currentChar != 8) {
     n = n+1;
     letters[n] = currentChar;
@@ -45,6 +47,7 @@ if (currentChar != 32) {
     actualCharacter = currentChar;
     for (tempKey = shiftKey; tempKey != 0; tempKey--) {
         
+    if (actualCharacter != 63 && actualCharacter != 46 && actualCharacter != 33) {
         if (actualCharacter > 122) {
             actualCharacter = 98;
         }
@@ -56,6 +59,12 @@ if (currentChar != 32) {
             actualCharacter = actualCharacter + modifier;
         }
     }
+        else {
+            actualCharacter = actualCharacter + 0;
+        }
+    }
+
+
     letters[i] = actualCharacter;
 
     printf("%c", letters[i]);
@@ -66,7 +75,5 @@ else printf(" ");
 }
 
 printf("\n");
-
-printf("Press any key to exit:");
 getch();
 }
